@@ -1,14 +1,20 @@
 import './App.css';
 import { useState, useEffect } from 'react';
 import { db } from './firebase-config';
-import { collection, getDocs } from 'firebase/firestore';
+import { collection, getDocs, addDoc } from 'firebase/firestore';
 
 export default function App() {
+    const [newFirstName, setNewFirstName] = useState("");
+    const [newLastName, setNewLastName] = useState("");
+    const [newAge, setNewAge] = useState(0);
     const [users, setUsers] = useState([]);
     const usersCollectionRef = collection(db, "users");
     
-    //async function practice
-    //async sends back a promise
+    const createUser = async () => {
+        await addDoc(usersCollectionRef, 
+            { firstName: newFirstName, lastName: newLastName, age: newAge }
+        )};
+    
     useEffect(() => {
         const getUsers = async () => {
             const data = await getDocs(usersCollectionRef);
@@ -16,16 +22,29 @@ export default function App() {
         }
 
         getUsers();
-    }, [])
+    }, []);
 
     if (!users) return <div>Loading...</div>;
     
     return (
     <main>
-        <input placeholder='First Name...'/>
-        <input placeholder='Last Name...'/>
-        <input type='number' placeholder='Age...'/>
-        <button className='create-user-button'>Create User</button>
+        <input 
+            onChange={(event) => {setNewFirstName(event.target.value);}}
+            placeholder='First Name...'
+        />
+        <input 
+            onChange={(event) => {setNewLastName(event.target.value);}}
+            placeholder='Last Name...'
+        />
+        <input 
+            onChange={(event) => {setNewAge(event.target.value);}}
+            type='number' 
+            placeholder='Age...'
+        />
+        <button 
+            onClick={createUser}
+            className='create-user-button'>Create User
+        </button>
         
         {users.map((user) => { 
         return <div className='display-div'> 
@@ -33,7 +52,7 @@ export default function App() {
             <h1>{user.lastName}</h1>
             <h1>{user.age}</h1>
         </div>
-    })};
+    })}
     </main>
   )
 }
