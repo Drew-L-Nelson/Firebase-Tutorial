@@ -29,9 +29,9 @@ export default function App() {
         
         {users.map((user) => { 
         return <div className='display-div'> 
-            <h1>First Name: {user.firstName}</h1>
-            <h1>Last Name: {user.lastName}</h1>
-            <h1>Age: {user.age}</h1>
+            <h1>{user.firstName}</h1>
+            <h1>{user.lastName}</h1>
+            <h1>{user.age}</h1>
         </div>
     })};
     </main>
