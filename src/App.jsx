@@ -22,13 +22,16 @@ export default function App() {
     
     return (
     <main>
+        <input placeholder='First Name...'/>
+        <input placeholder='Last Name...'/>
+        <input type='number' placeholder='Age...'/>
+        <button className='create-user-button'>Create User</button>
+        
         {users.map((user) => { 
         return <div className='display-div'> 
             <h1>First Name: {user.firstName}</h1>
             <h1>Last Name: {user.lastName}</h1>
             <h1>Age: {user.age}</h1>
-            <h1>ID: {user.id}</h1>
-            <break></break>
         </div>
     })};
     </main>
