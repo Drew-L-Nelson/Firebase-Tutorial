@@ -1,7 +1,7 @@
 import './App.css';
 import { useState, useEffect } from 'react';
 import { db } from './firebase-config';
-import { collection, getDocs, addDoc } from 'firebase/firestore';
+import { collection, getDocs, addDoc, updateDoc, deleteDoc, doc } from 'firebase/firestore';
 
 export default function App() {
     const [newFirstName, setNewFirstName] = useState("");
@@ -12,8 +12,19 @@ export default function App() {
     
     const createUser = async () => {
         await addDoc(usersCollectionRef, 
-            { firstName: newFirstName, lastName: newLastName, age: newAge }
+            { firstName: newFirstName, lastName: newLastName, age: Number(newAge) }
         )};
+
+    const updateUser = async (id, age) => {
+        const userDoc = doc(db, "users", id)
+        const newFields = { age: age + 1 };
+        await updateDoc(userDoc, newFields)
+    }
+
+    const deleteUser = async (id) => {
+        const userDoc = doc(db, "users", id)
+        await deleteDoc(userDoc)
+    }
     
     useEffect(() => {
         const getUsers = async () => {
@@ -29,15 +40,15 @@ export default function App() {
     return (
     <main>
         <input 
-            onChange={(event) => {setNewFirstName(event.target.value);}}
+            onChange={(event) => {setNewFirstName(event.target.value)}}
             placeholder='First Name...'
         />
         <input 
-            onChange={(event) => {setNewLastName(event.target.value);}}
+            onChange={(event) => {setNewLastName(event.target.value)}}
             placeholder='Last Name...'
         />
         <input 
-            onChange={(event) => {setNewAge(event.target.value);}}
+            onChange={(event) => {setNewAge(event.target.value)}}
             type='number' 
             placeholder='Age...'
         />
@@ -48,9 +59,22 @@ export default function App() {
         
         {users.map((user) => { 
         return <div className='display-div'> 
-            <h1>{user.firstName}</h1>
-            <h1>{user.lastName}</h1>
-            <h1>{user.age}</h1>
+
+            <div className='user-info-display-div'>
+                <h1>{user.firstName}</h1>
+                <h1>{user.lastName}</h1>
+                <h1>{user.age}</h1>
+            </div>
+            <div className='button-div'>
+                <button 
+                    className='edit-user-button'
+                    onClick={() => {updateUser(user.id, user.age)}}
+                >Edit User</button>
+                <button 
+                    className='delete-user-button'
+                    onClick={() => {deleteUser(user.id)}}
+                >Delete User</button>
+            </div>
         </div>
     })}
     </main>
