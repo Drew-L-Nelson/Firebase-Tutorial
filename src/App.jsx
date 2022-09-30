@@ -1,4 +1,5 @@
 import './App.css';
+import Popup from './components/Popup';
 import { useState, useEffect } from 'react';
 import { db } from './firebase-config';
 import { collection, getDocs, addDoc, updateDoc, deleteDoc, doc } from 'firebase/firestore';
@@ -54,7 +55,9 @@ export default function App() {
         />
         <button 
             onClick={createUser}
-            className='create-user-button'>Create User
+            className='create-user-button'
+        >
+            Create User
         </button>
         
         {users.map((user) => { 
@@ -77,6 +80,10 @@ export default function App() {
             </div>
         </div>
     })}
+
+        <div>
+            <Popup/>
+        </div>
     </main>
   )
 }
