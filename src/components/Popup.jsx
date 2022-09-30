@@ -1,12 +1,13 @@
 import './Popup.css';
-import { useState, useEffect } from 'react';
-import { db } from '../firebase-config';
-import { collection, getDocs, addDoc, updateDoc, deleteDoc, doc } from 'firebase/firestore';
+import Modal from './Modal'
 
 export default function Popup() {
     return(
-        <div className='main-div'>
-            <h1>Wassabi</h1>
+        <div className='Popup-main-div'>
+            <h1>Click on the button to open modal</h1>
+            <button className='open-modal-button'>Open</button>
+            {/* Modal import, hopefully opens on screen and not just within Popup window */}
+            <Modal/>
         </div>
     )
 }

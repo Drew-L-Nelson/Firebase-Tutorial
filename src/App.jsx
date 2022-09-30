@@ -82,6 +82,7 @@ export default function App() {
     })}
 
         <div>
+            {/*Import modal popup from Popup.jsx*/}
             <Popup/>
         </div>
     </main>
