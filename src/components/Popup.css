@@ -4,9 +4,9 @@
     font-family: Arial, Helvetica, sans-serif;
     font-weight: bold;
     color: white;
-    background: red;
+    background: #007bba;
     border-radius: 6px;
-    border: 2px solid #f77f00;
+    border: 2px solid #00a9e2;
     width: 250px;
     padding: 10px;
     margin: 10px;
@@ -19,9 +19,9 @@
     font-family: Arial, Helvetica, sans-serif;
     font-weight: bold;
     color: white;
-    background: red;
+    background: #007bba;
     border-radius: 6px;
-    border: 2px solid #f77f00;
+    border: 2px solid #00a9e2;
     width: 500px;
     padding: 10px;
     margin: 10px;
@@ -40,4 +40,5 @@
     margin-top: 10px;
     width: 45%;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    background: linear-gradient(to bottom,  #0077b6 1%,#1d3557 100%);
 }

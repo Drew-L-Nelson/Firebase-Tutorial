@@ -17,7 +17,7 @@ border: 0;
 outline: 0;
 }
 body {
-background: #fcbf49;
+background: #ebfaff;
 line-height: 1;
 color: black;
 }
@@ -48,8 +48,8 @@ main {
 }
 
 .display-div {
-    background: #d62828;
-    border: 2px solid #f77f00;
+    background: #007bba;
+    border: 2px solid #00a9e2;
     width: 250px;
     padding: 10px;
     margin-top: 10px;
@@ -79,6 +79,7 @@ main {
     margin-top: 10px;
     width: 20%;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    background: linear-gradient(to bottom,  #0077b6 1%,#1d3557 100%);
 }
 
 .edit-user-button {
@@ -92,6 +93,8 @@ main {
     padding: 10px;
     margin-top: 5px;
     width: 45%;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    background: linear-gradient(to bottom,  #0077b6 1%,#1d3557 100%);
 }
 
 .delete-user-button {
@@ -105,6 +108,8 @@ main {
     padding: 10px;
     margin-top: 5px;
     width: 45%;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    background: linear-gradient(to bottom,  #0077b6 1%,#1d3557 100%);
 }
 
 button:hover{
