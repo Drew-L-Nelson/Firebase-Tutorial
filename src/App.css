@@ -17,7 +17,7 @@ border: 0;
 outline: 0;
 }
 body {
-background: #ebfaff;
+background: #f6fff8;
 line-height: 1;
 color: black;
 }
@@ -48,7 +48,7 @@ main {
 }
 
 .display-div {
-    background: #007bba;
+    background: #90e0ef;
     border: 2px solid #00a9e2;
     width: 250px;
     padding: 10px;
@@ -115,6 +115,15 @@ main {
 button:hover{
     cursor: pointer;
 }
+/* 
+.create-user-button {
+    padding: 10px;
+    margin-top: 10px;
+    width: 20%;
+    background: #ebfaff
+}
 
-
-
+.create-user-button:focus {
+    border: none;
+    outline: none;
+} */
