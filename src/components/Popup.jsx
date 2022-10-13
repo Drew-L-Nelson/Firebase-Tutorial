@@ -15,14 +15,13 @@ export default function Popup() {
             <h1>Click on the button to open modal</h1>
             <button 
                 className='open-modal-button'
-                // onClick={() => {setOpenModal(true)}}
                 onClick={() => {
                     setOpenModal(true)
                     changeStyle()
                 }}
             >Open</button>
             {/* Modal import, hopefully opens on screen and not just within Popup window */}
-            {openModal && <Modal/>}
+            {openModal && <Modal closeModal={setOpenModal} changeStyle={setStyle}/>}
         </div>
     )
 }
